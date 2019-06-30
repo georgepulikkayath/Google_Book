@@ -10,7 +10,6 @@ import BookCard from "../components/Card/BookCard";
 import SearchForm from "../components/Search/SearchForm";
 import SearchResults from "../components/SearchResults";
 
-// setting components initial state
 class Home extends Component {
  constructor(props){
    super(props);
@@ -21,14 +20,14 @@ class Home extends Component {
   componentDidMount() {
 
   }
-  // Get  value and name of input which triggered change
+  
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
-  // Handle event when form is submitted
+  
   handleFormSubmit = event => {
     event.preventDefault();
 
@@ -37,7 +36,7 @@ class Home extends Component {
         let books = res.data.items;
         console.log(books);
 
-        //loop through array of book objects
+       
         books.forEach(book => {
           let title = book.volumeInfo.title;
           let authors = book.volumeInfo.authors;
@@ -59,7 +58,7 @@ class Home extends Component {
 
   };
 
-  // Save book
+
   handleOnClick = event => {
     event.preventDefault();
     API.saveBook({
@@ -88,11 +87,7 @@ class Home extends Component {
           </Container>
           <SearchResults books={this.state.books} />
 
-          {/* <Container>
-            <Paper id="searchResults" className={this.root} elevation={1}>
-              <Typography variant="h5" component="h3">
-                Results:
-              </Typography> */}
+         
 
             <Container>
                 <BookCard
